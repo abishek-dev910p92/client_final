@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../client_assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="../client_assets/img/favicon.png" />
+  <title>minitzgo</title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../client_assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../client_assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link href="../client_assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../client_assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <link href="../client_assets/css/bill.css" rel="stylesheet" />
+  <style>
+    .bw-effect {
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+      /* Smooth transition */
+    }
+
+    .bw-effect:hover {
+      filter: none;
+    }
+
+
+    /* Media queries for mobile and tablet screens */
+    @media (max-width: 767.98px) {
+
+      /* Extra small devices (phones, less than 768px) */
+      .notify {
+        margin-top: 150px;
+        /* Example margin-top for mobile screens */
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+
+      /* Small devices (tablets, 768px and up) */
+      .notify {
+        margin-top: 150px;
+        /* Example margin-top for tablet screens */
+      }
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100" id="sidenavclass">
+  <aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 bg-light fixed-start ms-3">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0  d-xl-none"
+        aria-hidden="true" id="closeBtn"></i>
+      <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.php"
+        target="_blank">
+        <img src="https://minitzgo.com/assets/minitzgo-b_aiJ4qm.png" class="navbar-brand-img h-100" alt="main_logo" />
+
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0" />
+    <div class="collapse navbar-collapse w-auto max-height-vh-100 h-100" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/dashboard.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>shop</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(0.000000, 148.000000)">
+                        <path class="color-background opacity-6"
+                          d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/tables.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>office</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g id="office" transform="translate(153.000000, 2.000000)">
+                        <path class="color-background opacity-6"
+                          d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Orders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/products.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>office</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g id="office" transform="translate(153.000000, 2.000000)">
+                        <path class="color-background opacity-6"
+                          d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Add</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="../pages/manufacture.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>shop</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(0.000000, 148.000000)">
+                        <path class="color-background opacity-6"
+                          d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Manufacture</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../pages/billing.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>credit-card</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(453.000000, 454.000000)">
+                        <path class="color-background opacity-6"
+                          d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Billing</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+            Account pages
+          </h6>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/profile.html">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>customer-support</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(1.000000, 0.000000)">
+                        <path class="color-background opacity-6"
+                          d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z">
+                        </path>
+                        <path class="color-background"
+                          d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="nav-link-text ms-1">Profile</span>
+          </a>
+          <p class="px-5 text-xs bg-danger rounded p-2 text-white">Make sure your <b>"screen remains active while you
+              are online." </b></p>
+        </li>
+
+
+      </ul>
+    </div>
+    <div class="sidenav-footer mx-3">
+      <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+        <div class="full-background" style="
+              background-image: url('../client_assets/img/curved-images/white-curved.jpeg');
+            "></div>
+        <div class="card-body text-start p-3 w-100">
+          <div
+            class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+            <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
+          </div>
+          <div class="docs-info">
+            <h6 class="text-white up mb-0">Need help?</h6>
+            <p class="text-xs font-weight-bold">Please check our docs</p>
+            <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank"
+              class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm">
+              <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+            </li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+              Billing
+            </li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Billing</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="pe-md-3 mx-auto d-flex align-items-center"></div>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a href="/pages/profile.html" class="nav-link text-body font-weight-bold px-0 ">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none" id="userName">User</span>
+              </a>
+            </li>
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+
+              </a>
+            </li>
+            <li id="notificationBell" class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" onclick="toggleDropdown()"
+                aria-expanded="false">
+                <i class="fa fa-bell cursor-pointer"></i>
+                <sup id="notificationCount" class=" rounded" style="font-size:15px; color: red;   "></sup>
+              </a>
+
+              <!-- Bell icon with notification count -->
+
+              <ul class="dropdown-menu dropdown-menu-end px-2 notify bg-gradient-light position-absolute py-3 me-sm-n4"
+                id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+                <!-- notification body -->
+                <li id="notificationbody">
+
+                </li>
+                <!-- notification body ends -->
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Search Bar -->
+    <div class="d-flex justify-content-center align-items-center py-4 w-100">
+      <form class="d-flex shadow shadow-2 rounded rounded-pill" style="position: relative" id="product_code_searchbar">
+        <input type="text" class="px-4 py-3 rounded rounded-pill border border-1" placeholder="Enter product code here"
+          id="product_code_input" style="width: max(30vw, 22rem)" required />
+
+        <button type="submit" aria-label="Search" style="
+          cursor: pointer;
+          position: absolute;
+          top: 1.3rem;
+          right: 1rem;
+          background: none;
+          border: none;
+        ">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Billin Modal -->
+    <div id="items_section"
+      class="ms-4 mt-2 d-flex justify-content-center align-items-center gap-3 px-3 py-2 flex-wrap   rounded  shadow shadow-2"
+      style="width: max-content">
+      Add products to checkout
+
+      <button class="btn btn-primary my-auto" data-bs-toggle="modal" data-bs-target="#billingModal">
+        Send bill
+      </button>
+    </div>
+    <div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center mx-auto" id="billingModalLabel">
+              Send Bill
+            </h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" oninput="updatePreview()" required />
+            </div>
+            <div class="form-group">
+              <label for="whatsapp_number">What's App Number</label>
+              <input type="text" class="form-control" id="phone" name="phone" oninput="updatePreview()" required />
+            </div>
+            <div class="form-group">
+              <label for="quantity"> Total Quantity <span>, Current Stock:<span id="currentstock"></span></span></label>
+              <input type="number" class="form-control bg-white" id="quantity" placeholder="Enter Quantity" value="1"
+                readonly />
+            </div>
+
+
+            <div class="container" id="bill-content">
+              <div class="header">
+                <h1 id="shop_name">Fashion Shop Name</h1>
+                <p id="shop_address">Address Line 1, Address Line 2, City, State, Postal Code</p>
+                <p id="shop_contact">Contact: +91 XXXXX XXXXX | Email: info@fashionshop.com</p>
+                <p id="shop_gst">GSTIN: 22XXXXXXXXXXXXX</p>
+              </div>
+              <div>
+                <p><strong>Bill No:</strong> <span id="bill_number"></span></p>
+                <p><strong>Date:</strong> <span id="current-date"></span></p>
+
+              </div>
+              <div>
+                <p><strong>Customer Details</strong></p>
+                <p><strong>Name:</strong> <span id="namePreview">[Customer's Name]</span></p>
+                <p><strong>Contact Number:</strong> <span id="phonePreview">[Customer's Phone Number]</span></p>
+
+              </div>
+              <div id="productBill" class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead class="table-primary">
+                    <tr>
+                      <th class="hidden-in-pdf" scope="col" style="width: 100px;">Image</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Total</th>
+                      <th scope="col" style="width: 100px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="productCards">
+                    <!-- Dynamic rows will be added here by JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+
+
+
+              <div class="totals">
+
+              </div>
+              <div class="terms">
+                <p><strong>Terms and Conditions:</strong></p>
+                <p>1. Goods once sold will not be exchanged or refunded without a valid reason.</p>
+                <p>2. Keep the bill for warranty claims.</p>
+                <p>3. GSTIN is mandatory for claiming input tax credit (ITC).</p>
+              </div>
+
+            </div>
+            <!-- Button to download PDF -->
+            <button id="download-btn">Download PDF</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary mx-auto" id="sendConfirmedBillBtn">
+              Send confirmed Bill
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--h2>User Profile Information</h2>
+    <div>
+        
+      
+        <p><strong>Last Name:</strong> </p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone Number:</strong> <span id="phoneno"></span></p>
+        <p><strong>Account Number:</strong> </p>
+        <p><strong>IFSC Code:</strong> <span id="ifsc"></span></p>
+        <p><strong>Pan ID:</strong> <span id="panid"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Seller Name:</strong> <span id="seller_name"></span></p>
+        <p><strong>Shop Name:</strong> <span id="shop_name"></span></p>
+    </div-->
+
+
+
+    <!-- Products Cards Section -->
+    <div id="products_section" class="w-100 d-flex gap-3 p-3 my-2 flex-wrap"></div>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-xl-6 mb-xl-0 mb-4">
+              <div class="card bg-transparent shadow-xl">
+                <div class="overflow-hidden position-relative border-radius-xl" style="
+                      background-image: url('../client_assets/img/curved-images/curved14.jpg');
+                    ">
+                  <span class="mask bg-gradient-dark"></span>
+                  <div class="card-body position-relative z-index-1 p-3">
+                    <i class="fas fa-wifi text-white p-2"></i>
+                    <h5 class="text-white mt-4 mb-5 pb-2">
+                      <span id="account"></span>
+                    </h5>
+                    <div class="d-flex">
+                      <div class="d-flex">
+                        <div class="me-4">
+                          <p class="text-white text-sm opacity-8 mb-0">
+                            Account Holder
+                          </p>
+                          <h6 class="text-white mb-0"><span id="first_name"></span> <span id="last_name"></span></h6>
+                        </div>
+                        <div>
+                          <p class="text-white text-sm opacity-8 mb-0">
+                            Your ID
+                          </p>
+                          <h6 class="text-white mb-0" id="cid"></h6>
+                        </div>
+                      </div>
+                      <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
+                        <img class="w-60 mt-2" src="../client_assets/img/logos/mastercard.png" alt="logo" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="card-header mx-4 p-3 text-center">
+                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                        <i class="fas fa-landmark opacity-10"></i>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0 p-3 text-center">
+                      <h6 class="text-center mb-0">Total Sale</h6>
+                      <span class="text-xs">Total sale amount</span>
+                      <hr class="horizontal dark my-3" />
+                      <h5 class="mb-0">₹500</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-4">
+                  <div class="card">
+                    <div class="card-header mx-4 p-3 text-center">
+                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                        <i class="fab fa-paypal opacity-10"></i>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0 p-3 text-center">
+                      <h6 class="text-center mb-0">Due Amount</h6>
+                      <span class="text-xs">due Payments</span>
+                      <hr class="horizontal dark my-3" />
+                      <h5 class="mb-0">₹455.00</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-lg-0 mb-4 bw-effect">
+              <div class="card mt-4 ">
+                <div class="card-header pb-0 p-3">
+                  <div class="row">
+                    <div class="col-6 d-flex align-items-center">
+                      <h6 class="mb-0">Payment Method's <b>Coming Soon...</b></h6>
+                    </div>
+                    <div class="col-6 text-end">
+                      <a class="btn bg-gradient-dark mb-0" href="javascript:;"><i
+                          class="fas fa-plus"></i>&nbsp;&nbsp;Add New
+                        Card</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-md-6 mb-md-0 mb-4">
+                      <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                        <img class="w-10 me-3 mb-0" src="../client_assets/img/logos/mastercard.png" alt="logo" />
+                        <h6 class="mb-0">
+                          ***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;7852
+                        </h6>
+                        <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip"
+                          data-bs-placement="top" title="Edit Card"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                        <img class="w-10 me-3 mb-0" src="../client_assets/img/logos/visa.png" alt="logo" />
+                        <h6 class="mb-0">
+                          ***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;5248
+                        </h6>
+                        <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip"
+                          data-bs-placement="top" title="Edit Card"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+              <div class="row">
+                <div class="col-6 d-flex align-items-center">
+                  <h6 class="mb-0">Billing info</h6>
+                </div>
+                <div class="col-6 text-end">
+                  <button class="btn btn-outline-primary btn-sm mb-0">
+                    View All
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-3 pb-0">
+              <ul class="list-group" id="bills-list">
+                <!-- Bills will be populated here dynamically -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const dbUser = JSON.parse(localStorage.getItem('dbUser'));
+            let cid = null;
+
+            if (dbUser && dbUser.cid) {
+              cid = dbUser.cid;
+              console.log('CID from dbUser:', cid); // Debugging log
+            } else {
+              console.error('CID not found in dbUser.');
+              const billsList = document.getElementById('bills-list');
+              if (billsList) {
+                billsList.innerHTML = `
+        <li class="list-group-item text-danger">
+          Error: CID not found in local storage. Please log in again.
+        </li>
+      `;
+              }
+              return; // Stop further execution if cid is not found
+            }
+
+            // Fetch bills if CID is available
+            fetch('https://minitzgo.com/api/bills_fetch.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': '6cbb787e9782df66c3c8f4540003c30d36494b462fbf0d27c838f6243711cc24'
+              },
+              body: JSON.stringify({ cid }),
+            })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then(apiResponse => {
+                console.log('API Response:', apiResponse); // Debugging log
+
+                const billsList = document.getElementById('bills-list');
+                if (!apiResponse.status || !apiResponse.data) {
+                  throw new Error(apiResponse.message || 'Invalid data format.');
+                }
+
+                billsList.innerHTML = ''; // Clear any existing content
+
+                // Sort bills by id in descending order and take the top 5
+                const recentBills = apiResponse.data
+                  .sort((a, b) => b.id - a.id)  // Sort by id (highest first)
+                  .slice(0, 5);  // Take the first 5 items
+
+                recentBills.forEach(bill => {
+                  const filepath = bill.filepath ? bill.filepath.trim() : '#';  // Ensure filepath is not empty
+                  const listItem = document.createElement('li');
+                  listItem.classList.add(
+                    'list-group-item',
+                    'border-0',
+                    'd-flex',
+                    'justify-content-between',
+                    'ps-0',
+                    'mb-2',
+                    'border-radius-lg'
+                  );
+
+                  const leftContent = document.createElement('div');
+                  leftContent.classList.add('d-flex', 'flex-column');
+                  leftContent.innerHTML = `
+          <h6 class="mb-1 text-dark font-weight-bold text-sm">
+            ${new Date(bill.timestamp).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: '2-digit',
+                  })}
+          </h6>
+          <span class="text-xs">#${bill.id}</span>
+        `;
+
+                  const rightContent = document.createElement('div');
+                  rightContent.classList.add('d-flex', 'align-items-center', 'text-sm');
+
+                  const viewButton = document.createElement('a');
+                  viewButton.href = filepath;
+                  viewButton.target = '_blank';  // Open in new tab
+                  viewButton.rel = 'noopener noreferrer';  // Security best practice
+                  viewButton.classList.add('btn', 'btn-link', 'text-dark', 'text-sm', 'mb-0', 'px-0', 'ms-4');
+                  viewButton.innerHTML = `<i class="fas fa-file-pdf text-lg me-1"></i> View/Download`;
+                  viewButton.download = `bill_${bill.id}.pdf`;  // Add download attribute to trigger download
+
+                  rightContent.appendChild(viewButton);
+                  listItem.appendChild(leftContent);
+                  listItem.appendChild(rightContent);
+
+                  billsList.appendChild(listItem);
+                });
+
+              })
+              .catch(error => {
+                console.error('Error fetching bills:', error);
+
+                const billsList = document.getElementById('bills-list');
+                if (billsList) {
+                  billsList.innerHTML = `
+          <li class="list-group-item text-danger">
+            Error fetching bills: ${error.message}
+          </li>
+        `;
+                }
+              });
+          });
+
+
+        </script>
+      </div>
+      <!--div class="row">
+        <div class="col-md-7 mt-4">
+          <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Billing Information</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <h6 class="mb-3 text-sm">Oliver Liam</h6>
+                    <span class="mb-2 text-xs">Company Name:
+                      <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+                    <span class="mb-2 text-xs">Email Address:
+                      <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
+                    <span class="text-xs">VAT Number:
+                      <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
+                        class="far fa-trash-alt me-2"></i>Delete</a>
+                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                        class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <h6 class="mb-3 text-sm">Lucas Harper</h6>
+                    <span class="mb-2 text-xs">Company Name:
+                      <span class="text-dark font-weight-bold ms-sm-2">Stone Tech Zone</span></span>
+                    <span class="mb-2 text-xs">Email Address:
+                      <span class="text-dark ms-sm-2 font-weight-bold">lucas@stone-tech.com</span></span>
+                    <span class="text-xs">VAT Number:
+                      <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
+                        class="far fa-trash-alt me-2"></i>Delete</a>
+                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                        class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <h6 class="mb-3 text-sm">Ethan James</h6>
+                    <span class="mb-2 text-xs">Company Name:
+                      <span class="text-dark font-weight-bold ms-sm-2">Fiber Notion</span></span>
+                    <span class="mb-2 text-xs">Email Address:
+                      <span class="text-dark ms-sm-2 font-weight-bold">ethan@fiber.com</span></span>
+                    <span class="text-xs">VAT Number:
+                      <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
+                        class="far fa-trash-alt me-2"></i>Delete</a>
+                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                        class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 mt-4">
+          <div class="card h-100 mb-4">
+            <div class="card-header pb-0 px-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="mb-0">Your Transaction's</h6>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center">
+                  <i class="far fa-calendar-alt me-2"></i>
+                  <small>23 - 30 March 2020</small>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-4 p-3">
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">
+                Newest
+              </h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">Netflix</h6>
+                      <span class="text-xs">27 March 2020, at 12:30 PM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                    - $ 2,500
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">Apple</h6>
+                      <span class="text-xs">27 March 2020, at 04:30 AM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                    + $ 2,000
+                  </div>
+                </li>
+              </ul>
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder my-3">
+                Yesterday
+              </h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">Stripe</h6>
+                      <span class="text-xs">26 March 2020, at 13:45 PM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                    + $ 750
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">HubSpot</h6>
+                      <span class="text-xs">26 March 2020, at 12:30 PM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                    + $ 1,000
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">Creative Tim</h6>
+                      <span class="text-xs">26 March 2020, at 08:30 AM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                    + $ 2,500
+                  </div>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                  <div class="d-flex align-items-center">
+                    <button
+                      class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                      <i class="fas fa-exclamation"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                      <h6 class="mb-1 text-dark text-sm">Webflow</h6>
+                      <span class="text-xs">26 March 2020, at 05:00 AM</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
+                    Pending
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div -->
+      <footer class="footer pt-3">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                , made with <i class="fa fa-heart"></i> by
+                <a href="" class="font-weight-bold" target="_blank">minitzgo</a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <div class="fixed-plugin">
+
+    <div class="card shadow-lg">
+      <div class="card-header pb-0 pt-3">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
+          <p>See our dashboard options.</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1" />
+      <div class="card-body pt-sm-3 pt-0">
+        <!-- Sidebar Backgrounds -->
+        <div>
+          <h6 class="mb-0">Sidebar Colors</h6>
+        </div>
+        <a href="javascript:void(0)" class="switch-trigger background-color">
+          <div class="badge-colors my-2 text-start">
+            <span class="badge filter bg-gradient-primary active" data-color="primary"
+              onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+          </div>
+        </a>
+        <!-- Sidenav Type -->
+        <!--Local storage-->
+
+        <script>
+          // Retrieve and parse the data from localStorage
+          const dbUser = JSON.parse(localStorage.getItem('dbUser'));
+
+          if (dbUser) {
+            // Format account number with spaces every four digits
+            const formattedAccount = dbUser.account.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+            // Assign each value to the corresponding element by id
+            document.getElementById('cid').textContent = dbUser.cid;
+            document.getElementById('first_name').textContent = dbUser.first_name;
+            document.getElementById('last_name').textContent = dbUser.last_name;
+            document.getElementById('email').textContent = dbUser.email;
+            document.getElementById('phoneno').textContent = dbUser.phoneno;
+            document.getElementById('account').textContent = formattedAccount;
+            document.getElementById('ifsc').textContent = dbUser.ifsc;
+            document.getElementById('panid').textContent = dbUser.panid;
+            document.getElementById('address').textContent = dbUser.address;
+            document.getElementById('seller_name').textContent = dbUser.seller_name;
+            document.getElementById('shop_name').textContent = dbUser.shop_name;
+          } else {
+            // Display a message if no data is found
+            document.body.innerHTML = '<p>No user data found in local storage.</p>';
+          }
+        </script>
+
+
+        <script>
+          var win = navigator.platform.indexOf("Win") > -1;
+          if (win && document.querySelector("#sidenav-scrollbar")) {
+            var options = {
+              damping: "0.5",
+            };
+            Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+          }
+
+          document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve cid from local storage
+            let cid = dbUser.cid
+            console.log("CID retrieved from localStorage:", cid);
+
+            if (cid) {
+              // Define the API endpoint
+              const apiUrl = 'https://minitzgo.com/api/client_bill_info.php';
+
+              // Prepare the POST request payload
+              const payload = { cid: cid };
+
+              // Fetch client billing information
+              fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json',
+                  'X-API-Key': '3abc7c11200bd81aa9e4d519ef14e038310fa4907205d99aaff59c622b248a78'
+                 },
+                body: JSON.stringify(payload)
+              })
+                .then(response => response.json())
+                .then(data => {
+                  console.log("API Response Data:", data); // Log the API response
+
+                  if (data.status === false) {
+                    // Handle the error case where no data is found
+                    console.error(data.message);
+                    alert(data.message); // Show the error message to the user
+                  } else {
+                    // Populate the fields with response data
+                    document.getElementById("shop_name").innerText = data.shop_name || "Fashion Shop Name";
+                    document.getElementById("shop_address").innerText = data.address || "Address Line 1, Address Line 2, City, State, Postal Code";
+                    document.getElementById("shop_contact").innerText = `Contact: ${data.phoneno} | Email: ${data.email}`;
+                    document.getElementById("shop_gst").innerText = `GSTIN: ${data.gst}`;
+                    document.getElementById("customer_name").innerText = `${data.first_name} ${data.last_name}`;
+                    document.getElementById("customer_phone").innerText = data.phoneno;
+                    document.getElementById("customer_email").innerText = data.email;
+                    document.getElementById("customer_address").innerText = data.address;
+
+                  }
+                })
+                .catch(error => {
+                  console.error("Error fetching data:", error);
+                });
+            } else {
+              console.error("CID not found in local storage.");
+            }
+          });
+          fcxx75442
+
+        </script>
+
+        <script>
+          // Declare the phone number as a global variable
+          let phone = "";
+
+          function updatePreview() {
+            const name = document.getElementById("name").value;
+
+            // Update the global variable
+            phone = document.getElementById("phone").value;
+
+            document.getElementById("namePreview").textContent = name;
+            document.getElementById("phonePreview").textContent = phone;
+          }
+
+
+        </script>
+        <script>
+          let billNumber;
+          function fetchBillNumber() {
+            fetch('http://localhost/client/pages/bill_num.php')
+              .then(response => response.json())
+              .then(data => {
+                if (data.status) {
+                  billNumber = data.bill_number;
+
+                  document.getElementById("bill_number").innerText = billNumber; // Display the bill number on the page
+                } else {
+                  console.error("Error:", data.message);
+                }
+              })
+              .catch(error => {
+                console.error("Fetch error:", error);
+              });
+          }
+
+          // Call this function wherever you need to generate and display the bill number
+          fetchBillNumber();
+
+        </script>
+
+
+        <script>
+
+          document.getElementById("sendConfirmedBillBtn").addEventListener("click", function () {
+            const dbUser = JSON.parse(localStorage.getItem("dbUser"));
+            let cid = dbUser && dbUser.cid ? dbUser.cid : null;
+
+            if (!cid) {
+              console.error("CID not found. Please log in again.");
+              alert("Error: CID not found. Please log in again.");
+              return;
+            }
+
+            const content = document.getElementById("bill-content");
+            if (!content) {
+              console.error("Bill content not found.");
+              alert("Error: Bill content not found.");
+              return;
+            }
+
+            // Keep the original bill number generation code here
+            const billNumber = generateBillNumber();
+
+            html2pdf()
+              .from(content)
+              .toPdf()
+              .outputPdf("datauristring")
+              .then(function (pdfDataUri) {
+                const pdfBlob = dataURItoBlob(pdfDataUri);
+                const formData = new FormData();
+                const pdfName = `${billNumber}.pdf`;
+                formData.append("pdf", pdfBlob, pdfName);
+
+                fetch("upload_bill.php", {
+                  method: "POST",
+                  body: formData,
+                })
+                  .then(response => response.json())
+                  .then(data => {
+                    if (data.filePath) {
+                      console.log("File Path:", data.filePath);
+                      sendFilePathToAPI(data.filePath, cid);
+                      openWhatsApp(data.filePath, dbUser.phone || phone);
+                    } else {
+                      console.error("File path not found in server response.");
+
+                    }
+                  })
+                  .catch(err => {
+                    console.error("Error uploading the file:", err);
+                    alert("Error: Failed to upload the file. Please try again.");
+                  });
+              });
+
+            function dataURItoBlob(dataURI) {
+              const byteString = atob(dataURI.split(",")[1]);
+              const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+              const ab = new ArrayBuffer(byteString.length);
+              const ia = new Uint8Array(ab);
+              for (let i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+              }
+              return new Blob([ab], { type: mimeString });
+            }
+
+            function sendFilePathToAPI(filepath, cid) {
+              console.log("Sending file path to API with CID:", cid);
+              fetch("https://minitzgo.com/api/bills.php", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  'X-API-Key': 'd69655cc30f6795e823703cf60dfe4f054e9bd4cea94e22e76309dda8e78eb16'
+                },
+                body: JSON.stringify({
+                  filepath: filepath,
+                  cid: cid,
+                }),
+              })
+                .then(response => response.json())
+                .then(data => {
+                  console.log("API Response:", data);
+                  if (data.status === "success") {
+
+                  } else {
+                    console.error("API Error:", data);
+
+                  }
+                })
+                .catch(error => {
+                  console.error("Error sending file path to API:", error);
+
+                });
+            }
+
+            function openWhatsApp(filePath, phoneNumber) {
+              const message = `Hi, here is your bill from clientNAme (minitzgo): ${filePath}`;
+              const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+              window.open(whatsappLink, "_blank");
+            }
+
+            function generateBillNumber() {
+              const prefix = "BILL"; // Keep your original logic here if it was different
+              const randomPart = Math.floor(1000 + Math.random() * 9000);
+              return `${prefix}-${randomPart}`;
+            }
+          });
+
+          document.addEventListener("DOMContentLoaded", function () {
+            function getCurrentDate() {
+              const today = new Date();
+              const day = String(today.getDate()).padStart(2, "0");
+              const month = String(today.getMonth() + 1).padStart(2, "0");
+              const year = today.getFullYear();
+              return `${day}-${month}-${year}`;
+            }
+
+            const dateElement = document.getElementById("current-date");
+            if (dateElement) {
+              dateElement.innerText = getCurrentDate();
+            } else {
+              console.error("Element with id 'current-date' not found.");
+            }
+          });
+
+        </script>
+        <script>
+          //stock update by ajax
+
+          document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("product_code_input").addEventListener("change", async function () {
+              const enteredCode = this.value.trim();
+              const quantityInput = parseInt(document.getElementById("quantity_input").value.trim());
+
+              if (!enteredCode || isNaN(quantityInput)) {
+                document.getElementById("currentstock").innerHTML = "Please enter a valid product code and quantity.";
+                return;
+              }
+
+              // try {
+              //   console.log("Fetching current stock for product code:", enteredCode);
+
+
+              //   // Fetch product details
+              //   const response = await fetch("https://minitzgo.com/api/fetch_products.php", {
+              //     method: "POST",
+              //     headers: {
+              //       "Content-Type": "application/json",
+              //       "x-api-key": "2637338988c5f3bbf8d4934dc458b966a21a1d2d56931390f97ce7c4641a2677"
+              //     },
+              //     body: {
+              //       'cid': cid
+              //     }
+              //   });
+
+              //   if (!response.ok) throw new Error(`Error fetching product data: ${response.statusText}`);
+
+              //   const data = await response.json();
+              //   console.log("Product Data Response:", data);
+
+              //   let output = "Product not found.";
+              //   if (data.data && data.data.length > 0) {
+              //     const matchingProduct = data.data.find(product => product.pcode === enteredCode);
+
+              //     if (matchingProduct) {
+              //       const currentStock = parseInt(matchingProduct.product_stock);
+              //       console.log("Current Stock for", enteredCode, ":", currentStock);
+
+              //       if (quantityInput > currentStock) {
+              //         output = "Insufficient stock available.";
+              //       } else {
+              //         const updatedStock = currentStock - quantityInput;
+              //         console.log("Updated Stock:", updatedStock);
+
+              //         // Update the stock using stockupdatepcode API
+              //         const updateResponse = await fetch("https://minitzgo.com/api/stockupdatepcode.php", {
+              //           method: "POST",
+              //           headers: {
+              //             "Content-Type": "application/json",
+              //             "xapikey": "be0fbece0783dc6732b25d5fee7886b9",
+              //           },
+              //           body: JSON.stringify({
+              //             pcode: enteredCode,
+              //             stock: updatedStock,
+              //           }),
+              //         });
+
+              //         if (!updateResponse.ok) throw new Error(`Error updating stock: ${updateResponse.statusText}`);
+
+              //         const updateData = await updateResponse.json();
+              //         console.log("Stock Update Response:", updateData);
+
+              //         if (updateData.status) {
+              //           output = `Stock updated successfully. New stock: ${updatedStock}`;
+              //         } else {
+              //           output = "Failed to update stock.";
+              //         }
+              //       }
+              //     }
+              //   }
+
+              //   document.getElementById("currentstock").innerHTML = output;
+              // } catch (error) {
+              //   document.getElementById("currentstock").innerHTML = "Network error or failed request.";
+              //   console.error("Error:", error);
+              // }
+              try {
+                console.log("Fetching current stock for product code:", enteredCode);
+
+                // Validate quantityInput (must be positive integer)
+                const quantity = parseInt(quantityInput);
+                if (isNaN(quantity) || quantity <= 0) {
+                  throw new Error("Invalid quantity. Must be a positive number.");
+                }
+
+                // Fetch product details
+                const response = await fetch("https://minitzgo.com/api/fetch_products.php", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": "2637338988c5f3bbf8d4934dc458b966a21a1d2d56931390f97ce7c4641a2677",
+                  },
+                  body: JSON.stringify({ cid: cid }), // Fixed: Added JSON.stringify
+                });
+
+                if (!response.ok) {
+                  throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log("Product Data Response:", data);
+
+                let output = "Product not found.";
+                if (data.data && data.data.length > 0) {
+                  const matchingProduct = data.data.find((product) => product.pcode === enteredCode);
+
+                  if (!matchingProduct) {
+                    output = "Product not found.";
+                  } else {
+                    const currentStock = parseInt(matchingProduct.product_stock);
+                    console.log("Current Stock for", enteredCode, ":", currentStock);
+
+                    if (quantity > currentStock) {
+                      output = `Insufficient stock. Available: ${currentStock}`;
+                    } else {
+                      const updatedStock = currentStock - quantity;
+
+                      // Update stock via API
+                      const updateResponse = await fetch("https://minitzgo.com/api/stockupdatepcode.php", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                          "x-api-key": "05e335df012afa910ea6f8f02908348a715a4f0b4a2db92e113ae9b763719a1a", // Fixed: Consistent header name
+                        },
+                        body: JSON.stringify({
+                          pcode: enteredCode,
+                          stock: updatedStock,
+                        }),
+                      });
+
+                      if (!updateResponse.ok) {
+                        throw new Error(`Stock update failed: ${updateResponse.statusText}`);
+                      }
+
+                      const updateData = await updateResponse.json();
+                      console.log("Stock Update Response:", updateData);
+
+                      if (updateData.status) {
+                        output = `Stock updated successfully. Remaining: ${updatedStock}`;
+                      } else {
+                        // Rollback logic (optional): Revert stock deduction if update fails
+                        output = "Failed to update stock. Please retry.";
+                      }
+                    }
+                  }
+                }
+
+                document.getElementById("currentstock").textContent = output;
+              } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("currentstock").textContent =
+                  error.message || "Network error. Please try again.";
+              }
+            });
+          });
+
+
+
+
+        </script>
+        <!-- Github buttons -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../client_assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+        <script src="../client_assets/js/billing.js"></script>
+        <script src="../client_assets/js/notification.js"></script>
+        <script src="../client_assets/js/sidenav/sidenav.js"></script>
+
+        <!--   Core JS Files   -->
+        <script src="../client_assets/js/core/popper.min.js"></script>
+        <script src="../client_assets/js/core/bootstrap.min.js"></script>
+        <script src="../client_assets/js/plugins/perfect-scrollbar.min.js"></script>
+        <script src="../client_assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+        <audio id="notificationSound">
+          <source src="../client_assets/sound/xperia-x10-sms-1193.mp3" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+</body>
+
+</html>

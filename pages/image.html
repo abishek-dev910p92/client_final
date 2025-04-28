@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Form Submission</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .image-preview {
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <span id="userName">John Doe</span> <!-- Example span for userName -->
+    <form id="imageUploadForm">
+        <input type="file" id="fileInput1" name="fileInput1" accept="image/*" multiple><br>
+        <input type="file" id="fileInput2" name="fileInput2" accept="image/*" multiple><br>
+        <input type="file" id="fileInput3" name="fileInput3" accept="image/*" multiple><br>
+        <input type="file" id="fileInput4" name="fileInput4" accept="image/*" multiple><br>
+        <input type="file" id="fileInput5" name="fileInput5" accept="image/*" multiple><br>
+        <button type="button" id="submitBtn">Upload</button>
+    </form>
+    <div id="previewContainer"></div>
+    <div id="uploadStatus"></div>
+
+    <!-- Add product form elements -->
+    <input type="text" id="title" placeholder="Product Title"><br>
+    <input type="text" id="price" placeholder="Product Price"><br>
+    <input type="text" id="color" placeholder="Product Color"><br>
+    <input type="text" id="material" placeholder="Material"><br>
+    <input type="text" id="brand" placeholder="Product Brand"><br>
+    <input type="text" id="offers" placeholder="Offers"><br>
+    <input type="text" id="category" placeholder="Category"><br>
+    <input type="text" id="stock" placeholder="Product Stock"><br>
+    <input type="text" id="size" placeholder="Product Size"><br>
+    <textarea id="description" placeholder="Product Description"></textarea><br>
+    <button type="button" onclick="submitForm()">Submit Form</button>
+
+    <script>
+        $(document).ready(function () {
+            // Variables to hold uploaded image paths
+            var img1 = '', img2 = '', img3 = '', img4 = '', img5 = '';
+
+            // Get client name from span
+            var nameElement = document.getElementById('userName');
+            var client_name = nameElement ? nameElement.textContent : null;
+
+            // Function to handle file input change and preview images
+            $('input[type="file"]').change(function () {
+                var previewContainer = $('#previewContainer');
+                previewContainer.empty(); // Clear previous previews
+
+                var inputId = $(this).attr('id');
+                var files = this.files;
+
+                Array.from(files).forEach((file, index) => {
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function (e) {
+                        var img = $('<img>', {
+                            class: 'image-preview img-fluid fixed-size-image',
+                            style: 'height: 100px; width: 100px;',
+                            src: e.target.result
+                        });
+                        previewContainer.append(img);
+
+                        // Assign image paths to variables
+                        if (inputId === 'fileInput1' && index === 0) img1 = e.target.result;
+                        else if (inputId === 'fileInput2' && index === 0) img2 = e.target.result;
+                        else if (inputId === 'fileInput3' && index === 0) img3 = e.target.result;
+                        else if (inputId === 'fileInput4' && index === 0) img4 = e.target.result;
+                        else if (inputId === 'fileInput5' && index === 0) img5 = e.target.result;
+                    };
+                });
+            });
+
+            // Function to handle image submission
+            $('#submitBtn').click(function () {
+                var formData = new FormData();
+                var fileInputs = document.querySelectorAll('input[type="file"]');
+                
+                fileInputs.forEach((input, index) => {
+                    Array.from(input.files).forEach(file => {
+                        formData.append('fileInput[' + index + ']', file);
+                    });
+                });
+
+                $.ajax({
+                    url: 'upload.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        var fileNames = response.split(',');
+                        img1 = fileNames[0] || '';
+                        img2 = fileNames[1] || '';
+                        img3 = fileNames[2] || '';
+                        img4 = fileNames[3] || '';
+                        img5 = fileNames[4] || '';
+
+                        $('#uploadStatus').html('Images uploaded successfully.<br>' +
+                          'Image 1: ' + img1 + '<br>' +
+                          'Image 2: ' + img2 + '<br>' +
+                          'Image 3: ' + img3 + '<br>' +
+                          'Image 4: ' + img4 + '<br>' +
+                          'Image 5: ' + img5);
+                    },
+                    error: function (xhr, status, error) {
+                        $('#uploadStatus').html('Error uploading files: ' + error);
+                    }
+                });
+            });
+
+            // Function to submit the form data
+            window.submitForm = function() {
+                console.log('Add button clicked');
+                const formData = new FormData();
+
+                // Append input fields to formData
+                formData.append('product_title', document.getElementById('title').value);
+                formData.append('product_price', document.getElementById('price').value);
+                formData.append('product_color1', document.getElementById('color').value);
+                formData.append('material', document.getElementById('material').value);
+                formData.append('product_brand', document.getElementById('brand').value);
+                formData.append('offers', document.getElementById('offers').value);
+                formData.append('category', document.getElementById('category').value);
+                formData.append('product_stock', document.getElementById('stock').value);
+                formData.append('product_size', document.getElementById('size').value);
+                formData.append('product_description', document.getElementById('description').value);
+                formData.append('client_name', client_name);
+                formData.append('cid', 1212);
+                formData.append('coordinates', 12151);
+                formData.append('similarity', '52');
+
+                // Append image paths to formData
+                formData.append('product_image1', img1);
+                formData.append('product_image2', img2);
+                formData.append('product_image3', img3);
+                formData.append('product_image4', img4);
+                formData.append('product_image5', img5);
+
+                // Check if any required fields are empty
+                const requiredFields = ['product_title', 'product_price', 'product_color1', 'material', 'product_brand', 'offers', 'category', 'product_stock', 'product_size', 'product_description'];
+                let isEmpty = false;
+                let emptyFieldsMsg = 'The following fields are required: ';
+console.log("images", img1)
+console.log("images", img2)
+console.log("images", img3)
+console.log("images", img4)
+console.log("images", img5)
+                requiredFields.forEach(field => {
+                    if (!formData.get(field)) {
+                        isEmpty = true;
+                        emptyFieldsMsg += field.replace('_', ' ') + ', ';
+                    }
+                });
+
+                if (isEmpty) {
+                    // Display message for required fields
+                    alert(emptyFieldsMsg.slice(0, -2)); // Remove the last comma and space
+                } else {
+                    // Convert formData to JSON object
+                    const jsonObject = {};
+                    formData.forEach((value, key) => {
+                        jsonObject[key] = value;
+                    });
+
+                    // Make POST request to the API endpoint
+                    fetch('https://minitgo.com/api/insert_products.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(jsonObject)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        console.log('Add button clicked 2');
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Response:', data);
+                        // Close the modal upon successful insertion
+                        $('#addProductModal').modal('hide');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            };
+        });
+
+        // Function to access camera
+        function accessCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    var videoElement = document.createElement('video');
+                    videoElement.srcObject = stream;
+                    videoElement.play();
+                })
+                .catch(function (error) {
+                    console.error('Error accessing camera:', error);
+                });
+        }
+
+        // Function to handle file select event
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            console.log('Files', files[0]);
+        }
+    </script>
+</body>
+</html>

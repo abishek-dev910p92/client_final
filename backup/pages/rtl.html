@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Hashing Example</title>
+    <!-- Include the latest version of bcrypt.js from jsDelivr CDN -->
+    <script src="../node_modules/bcryptjs/scripts/build.js"></script>
+</head>
+<body>
+    <form id="passwordForm">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Hash Password</button>
+    </form>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const passwordField = document.getElementById('password');
+            const password = passwordField.value;
+
+            // Check if bcrypt is loaded
+            if (typeof bcrypt !== 'undefined') {
+                // Generate salt and hash the password
+                const saltRounds = 10;
+                bcrypt.hash(password, saltRounds, function(err, hash) {
+                    if (err) {
+                        console.error('Error hashing password:', err);
+                        return;
+                    }
+
+                    // Show the hashed password in the console
+                    console.log('Hashed Password:', hash);
+                });
+            } else {
+                console.error('bcrypt.js is not loaded.');
+            }
+        });
+    </script>
+</body>
+</html>

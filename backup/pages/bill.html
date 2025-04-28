@@ -1,0 +1,90 @@
+ 
+ 
+ <link href="../client_assets/css/bill.css" rel="stylesheet" />
+ 
+ 
+
+<div class="container" id="bill-content">
+    <div class="header">
+        <h1>Fashion Shop Name</h1>
+        <p>Address Line 1, Address Line 2, City, State, Postal Code</p>
+        <p>Contact: +91 XXXXX XXXXX | Email: info@fashionshop.com</p>
+        <p>GSTIN: 22XXXXXXXXXXXXX</p>
+    </div>
+
+    <div>
+        <p><strong>Bill No:</strong> [Bill Number]</p>
+        <p><strong>Date:</strong> [Date]</p>
+        <p><strong>Place of Supply:</strong> [City, State]</p>
+    </div>
+
+    <div>
+        <p><strong>Customer Details:</strong></p>
+        <p><strong>Name:</strong> [Customer's Name]</p>
+        <p><strong>Contact Number:</strong> [Customer's Phone Number]</p>
+        <p><strong>Email:</strong> [Customer's Email]</p>
+        <p><strong>Address:</strong> [Customer's Address]</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S. No.</th>
+                <th>Description of Goods</th>
+                <th>HSN Code</th>
+                <th>Quantity</th>
+                <th>Rate (₹)</th>
+                <th>Taxable Value (₹)</th>
+                <th>GST (%)</th>
+                <th>CGST (₹)</th>
+                <th>SGST (₹)</th>
+                <th>Total (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>[Item Description]</td>
+                <td>[HSN Code]</td>
+                <td>[Quantity]</td>
+                <td>[Unit Price]</td>
+                <td>[Taxable Value]</td>
+                <td>[GST Rate]</td>
+                <td>[CGST]</td>
+                <td>[SGST]</td>
+                <td>[Total]</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <div class="totals">
+        <h3>Total Taxable Value: ₹ [Taxable Total]</h3>
+        <h3>Total CGST: ₹ [Total CGST]</h3>
+        <h3>Total SGST: ₹ [Total SGST]</h3>
+        <h3>Grand Total: ₹ [Grand Total]</h3>
+        <h3>Total Amount (in words): Rupees [Amount in Words] Only</h3>
+    </div>
+
+    <div class="terms">
+        <p><strong>Terms and Conditions:</strong></p>
+        <p>1. Goods once sold will not be exchanged or refunded without a valid reason.</p>
+        <p>2. Keep the bill for warranty claims.</p>
+        <p>3. GSTIN is mandatory for claiming input tax credit (ITC).</p>
+    </div>
+
+    <div class="signature">
+        <p>Authorized Signature</p>
+        <p>_________________________</p>
+        <p>For Fashion Shop Name</p>
+    </div>
+</div>
+
+<!-- Button to download PDF -->
+<button id="download-btn">Download PDF</button>
+
+<!-- Include the html2pdf.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script src="../client_assets/js/bill.js"></script>
+
+ 

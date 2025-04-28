@@ -1,0 +1,33 @@
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.carousel-item {
+    max-height: 400px;
+}
+
+#inputFields input,
+#inputFields textarea {
+    margin-bottom: 10px;
+}
+
+#pricePreview {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#strikePrice {
+    text-decoration: line-through;
+    color: red;
+}
+
+.preview-section {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

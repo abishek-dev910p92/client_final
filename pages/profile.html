@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../client_assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../client_assets/img/favicon.png">
+  <title>
+    MINITZGO
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../client_assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../client_assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="../client_assets/css/nucleo-svg.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons changes5-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../client_assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <!-- footer css -->
+    <link rel="stylesheet" href="../client_assets/css/footer.css">
+  <style>
+    /* Media queries for mobile and tablet screens */
+    @media (max-width: 767.98px) {
+
+      /* Extra small devices (phones, less than 768px) */
+      .notify {
+        margin-top: 150px;
+        /* Example margin-top for mobile screens */
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+
+      /* Small devices (tablets, 768px and up) */
+      .notify {
+        margin-top: 150px;
+        /* Example margin-top for tablet screens */
+      }
+    }
+  </style>
+  <style>
+    .fixed-size-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: 350px;
+      /* Set your desired fixed width */
+      height: 340px;
+      /* Set your desired fixed height */
+      cursor: pointer;
+    }
+
+    .file-upload-label {
+      display: inline-block;
+      cursor: pointer;
+
+
+      padding: 10px 15px;
+
+    }
+
+    .blue-tick-badge {
+      display: inline-block;
+      background-color: #007bff;
+      /* Bootstrap primary blue */
+      color: white;
+      border-radius: 50%;
+      /* Makes the badge circular */
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      /* Align the tick vertically */
+      font-size: 14px;
+      font-weight: bold;
+      vertical-align: middle;
+      margin-left: 8px;
+      /* Space between the text and the badge */
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+<!--Sidenav Overall   -->
+<aside
+class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 bg-light fixed-start ms-3 "
+id="sidenav-main">
+                             <!-- logo changes1 start  -->
+<!-- Sidenav Header Start  -->
+<div class="sidenav-header">
+  <!--  -->
+  <!-- <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0   d-xl-none" aria-hidden="true" id="closeBtn"></i> -->
+
+  <!-- Close Icon  -->
+  <i class="bi bi-x-circle-fill p-1 cursor-pointer text-secondary opacity-5  position-absolute end-2 top-0 d-xl-none" id="closeBtn"></i>
+
+  <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.php" target="_blank">
+
+    <img src="./images/minitzgo-logo.png" class="navbar-brand-img h-100 " alt="main_logo"> 
+    <span class="navbar-brand-name">Cl<span class="navbar-brand-name-i">i</span>ents</span>
+
+  </a>
+
+</div>
+<!-- Sidenav Header End  -->
+                                <!-- logo changes1 end   -->
+
+                                 
+<hr class="horizontal dark mt-0">
+
+                                         <!-- Sidebar vertical changes2 start   -->
+<!--Sidenav main start  -->                                      
+<div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
+<!-- navbar-nav inside container start -->
+  <ul class="navbar-nav">
+<!-- Dashboard -->
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/dashboard.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <!--  <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>shop </title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(0.000000, 148.000000)">
+                    <path class="color-background opacity-6"
+                      d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+
+          <i class="bi bi-house" id="sidebar-icon-db"></i>
+        </div>
+
+        <span class="nav-link-text ms-1">Dashboard</span>
+      </a>
+    </li>
+
+<!-- Orders -->     
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/tables.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+
+          <!-- <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>office</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g id="office" transform="translate(153.000000, 2.000000)">
+                    <path class="color-background opacity-6"
+                      d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+          
+          <i class="bi bi-bag" id="sidebar-icon-od"></i> 
+        </div>
+        <span class="nav-link-text ms-1">Orders</span>
+      </a>
+    </li>
+<!-- Add or Product -->
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/products.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <!-- <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>office</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(0.000000, 148.000000)">
+                    <path class="color-background opacity-6"
+                      d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+          
+          <i class="bi bi-box" id="sidebar-icon-pd"></i><br>
+        </div>
+        <span class="nav-link-text ms-1">my store</span>
+      </a>
+    </li>
+<!-- Manufacture -->
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/manufacture.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <!-- <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>shop</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(0.000000, 148.000000)">
+                    <path class="color-background opacity-6"
+                      d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+
+          <i class="bi bi-building" id="sidebar-icon-maf"></i>
+        </div>
+        <span class="nav-link-text ms-1">Manufacture</span>
+      </a>
+    </li>
+
+<!-- Billing -->   
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/billing.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <!-- <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>credit-card</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(453.000000, 454.000000)">
+                    <path class="color-background opacity-6"
+                      d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+          <i class="bi bi-receipt" id="sidebar-icon-bil"></i><br>
+        </div>
+        <span class="nav-link-text ms-1">Billing</span>
+      </a>
+    </li>
+
+<!-- Account pages -->   
+    <li class="nav-item mt-3">
+      <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+    </li>
+<!-- Profile -->  
+    <li class="nav-item">
+      <a class="nav-link active" href="../pages/profile.html">
+        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <!-- <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>customer-support</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(1.000000, 0.000000)">
+                    <path class="color-background opacity-6"
+                      d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> -->
+          <i class="bi bi-person-circle" id="sidebar-icon-prof"></i><br>
+        </div>
+        <span class="nav-link-text ms-1">Profile</span>
+      </a>
+    </li>
+    
+    <!-- Logout  -->
+    <li class="nav-item">
+      <a class="nav-link  " href="../pages/sign-in.html">
+        <div
+          class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>document</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <g transform="translate(1716.000000, 291.000000)">
+                  <g transform="translate(154.000000, 300.000000)">
+                    <path class="color-background opacity-6"
+                      d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z">
+                    </path>
+                    <path class="color-background"
+                      d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+        </div>
+        <button id="logoutBtn" class="border">Logout</button>
+      </a>
+      <p class="px-5 text-xs bg-danger p-2 text-white">Make sure your <b>"screen remains active while you are
+        online." </b></p>
+      <p class="px-5 text-xs bg-danger p-2 text-white">Please set you status to <b>"offline" </b> before logout</p>
+    </li>
+
+  </ul>
+
+<!-- navbar-nav inside container end -->
+</div>
+<!--Sidenav main end  -->
+
+
+<!--Sidenav footer start  -->
+<div class="sidenav-footer mx-3 ">
+
+  <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+
+    <div class="full-background"
+      style="background-image: url('../client_assets/img/curved-images/white-curved.jpeg')">
+    </div>
+
+    <div class="card-body text-start p-3 w-100">
+
+      <div
+        class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+        <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
+      </div>
+
+      <div class="docs-info">
+        <h6 class="text-white up mb-0">Need help?</h6>
+        <p class="text-xs font-weight-bold">Please check our Support </p>
+        <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank"
+          class="btn btn-white btn-sm w-100 mb-0">Contact US</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!--Sidenav footer start  -->
+
+</aside>
+<!--Sidenav Overall   -->
+                                          <!-- Sidebar vertical changes2 end   -->
+
+  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
+      <div class="container-fluid py-3">
+        <nav aria-label="breadcrumb">
+          <!-- Changes 8  -->
+          <!-- <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
+          </ol> -->
+           <!-- Changes 8  -->
+          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+        </nav>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group">
+
+            </div>
+          </div>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none" id="userName">User</span>
+              </a>
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-white p-0">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                  </div>
+                </a>
+              </a>
+            </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-white p-0">
+
+              </a>
+            </li>
+
+            <li id="notificationBell" class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" onclick="toggleDropdown()"
+                aria-expanded="false">
+                <i class="fa fa-bell cursor-pointer text-white"></i>
+                <sup id="notificationCount" class="text-white rounded" style="font-size:15px; color: red;   "></sup>
+              </a>
+
+              <!-- Bell icon with notification count -->
+
+              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 bg-gradient-light notify position-absolute me-sm-n4"
+                id="dropdownMenu" aria-labelledby="dropdownMenuButton">
+                <!-- notification body -->
+                <li id="notificationbody">
+
+                </li>
+                <!-- notification body ends -->
+
+              </ul>
+            </li>
+
+          </ul>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+                                             <!-- profile changes5 start   -->
+
+ <!--Profile main container start -->
+ <div class="profile-main-container container-fluid ">
+
+  <!-- profile banner container start -->
+    <div class=" profile-banner-container page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../client_assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+      <span class="mask bg-gradient-primary opacity-6"></span>
+    </div>
+  <!-- profile banner container end   -->
+
+    <!-- profile card container start -->
+    <div class="profile-card-container  card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+
+        <!--profile card sub container  -->
+      <div class="profile-card-sub-container  row gx-3 align-items-center  "> 
+
+        <!-- Profile img main container start -->
+        <div class="profile-img-main-container col-auto">
+            <!-- profile img sub container -->
+          <div class="profile-img-sub-container avatar avatar-xl position-relative   ">
+            <!-- profile img -->
+              <img src="data:image/png;base64,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"
+              alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            <!-- <img src="" alt="profile_image" class="profile-img w-100 border-radius-lg shadow-sm"> -->
+            <!-- profile icon -->
+          
+          </div>
+           <!-- profile img sub container -->
+        </div>
+        <!-- Profile img main container end -->
+
+          <!-- Profile name container -->
+        <div class="profile-name-container col-auto my-auto">
+              <!--profile name box  -->
+          <div class="profile-name-box h-100">
+              <!-- profile name  -->
+            <h5 class="profile-name mb-1" id="clientName"></h5>
+            <!-- profile store verify container -->
+            <p class="profile-store-verify-container mb-0 font-weight-bold text-sm">
+              <span class="profile-store-name" id="storeName">StoreName</span> / <strong class="profile-verfy-name text-info"><span id="verifyResult"></span></strong>
+            </p>
+
+          </div>
+              <!--profile name box  -->
+        </div>
+         <!-- Profile name container -->
+
+
+         <!-- status desc container start -->
+        <div class="status-desc-container col-lg-5 col-md-6 my-sm-auto me-lg-0 mx-auto  ">
+          <!-- status desc box -->
+          <div class="status-desc-box nav-wrapper position-relative end-0">
+             <div class="status-details-box">
+
+            <div class="status-msg " id="statusMessage" style="margin-top: 10px; font-weight: bold; color: #333;">
+              You are in <strong><span class="text-success " id="currentStatus">Offline mode</span></strong> now!
+            </div>
+              <!--status-online-msg  -->
+            <div class="status-online-msg text-primary text-xs" id="onlineMessage" style="display: none; color: green;">
+              Your products are now visible on Minitgo!
+            </div>
+           <!--status-offline-msg  -->
+            <div class="satus-offline-msg text-danger text-xs" id="offlineMessage" style="display: none; color: red;">
+              Your products will be hidden now.
+            </div>
+          </div> 
+          
+            <!-- status links container start   -->
+            <ul class="status-links-container nav nav-pills nav-fillbg-transparent" role="tablist">
+              <!-- Go online link   -->
+              <li class="online-link-box nav-item">
+                <a id="onlineButton" class="online-link nav-link  px-3 py-2   " data-bs-toggle="tab" href="javascript:;"
+                  role="tab" aria-selected="true">
+                  <svg class="text-success" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 52.68 52.68"
+                    xml:space="preserve">
+                    <g>
+                      <g>
+                        <path d="M52.353,30.31c-1.029-2.223-4.032-2.727-5.534-2.836l-0.439,2.968c1.741,0.146,2.987,0.56,3.251,1.129
+                      c0.182,0.394-0.167,1.052-0.39,1.41c-0.938,1.503-8.958-0.295-16.832-3.774l-1.213,2.743c3.673,1.625,10.913,4.517,15.896,4.517
+                      c2.125,0,3.84-0.525,4.695-1.898C52.989,32.636,52.758,31.188,52.353,30.31z" />
+                        <path d="M15.355,26.171c0.385,0.121,0.764,0.236,1.135,0.349c0.038,0.012,0.075,0.022,0.113,0.034
+                      c0.361,0.107,0.716,0.213,1.059,0.313l-0.688,0.979l-0.823,1.172l9.252-0.545l-4.438-6.307l-1.474,2.097
+                      C9.818,21.544,3.59,18.548,3,16.529c-0.161-0.638,0.236-1.141,0.628-1.318c0.522-0.239,1.903,0.26,2.523,0.649l1.44-2.469
+                      c-0.289-0.185-2.957-1.922-5.19-0.918c-0.881,0.395-2.006,1.338-2.365,3.582c-0.677,4.236,8.316,7.914,15.312,10.112
+                      C15.352,26.169,15.354,26.169,15.355,26.171z" />
+                        <path d="M8.375,18.099c0.437-0.885,0.936-1.734,1.5-2.535c1.271,0.85,2.739,1.59,4.364,2.201
+                      c-0.223,0.814-0.403,1.666-0.563,2.533c0.511,0.186,1.042,0.373,1.595,0.561c0.15-0.877,0.323-1.738,0.539-2.559
+                      c1.473,0.451,3.06,0.787,4.714,1.016l0.441-0.627l0.526,0.748c0.94,0.102,1.894,0.18,2.874,0.203v3.881l1.677,2.383V19.64
+                      c3.04-0.072,5.908-0.538,8.465-1.313c0.626,2.385,0.991,5.035,1.005,7.842h-9.284l0.811,1.152l0.369,0.523h3.415l0.564-1.278
+                      l1.829,0.81c0.372,0.164,0.738,0.314,1.105,0.469h1.156c-0.008,0.158-0.023,0.31-0.032,0.465c0.552,0.222,1.096,0.433,1.632,0.631
+                      c0.027-0.364,0.061-0.725,0.077-1.096h6.742c-0.083,1.043-0.264,2.06-0.512,3.047c0.593,0.142,1.145,0.258,1.653,0.351
+                      c0.389-1.569,0.6-3.211,0.6-4.899c0-4.387-1.394-8.452-3.755-11.785c-0.311-0.439-0.636-0.868-0.98-1.28
+                      c-3.752-4.502-9.396-7.373-15.701-7.373c-0.011,0-0.02,0.002-0.03,0.002c-0.007,0-0.012-0.002-0.018-0.002
+                      c-0.024,0-0.046,0.004-0.07,0.004c-5.906,0.033-11.37,2.703-14.936,6.637c-1.466,1.598-2.748,3.564-3.185,4.879
+                      C7.567,17.731,7.944,17.893,8.375,18.099z M43.958,26.169H37.19c-0.015-2.987-0.413-5.818-1.108-8.37
+                      c1.66-0.617,3.158-1.37,4.451-2.234C42.653,18.573,43.922,22.223,43.958,26.169z M39.547,14.283
+                      c-1.141,0.747-2.467,1.405-3.941,1.949c-1.085-3.222-2.669-5.902-4.577-7.722C34.385,9.611,37.321,11.639,39.547,14.283z
+                      M26.042,7.653c3.404,0.526,6.333,4.052,8,9.098c-2.403,0.712-5.117,1.143-8,1.213V7.653z M24.365,7.641v10.323
+                      c-2.917-0.07-5.665-0.511-8.09-1.238C17.959,11.646,20.926,8.112,24.365,7.641z M19.23,8.562c-1.879,1.812-3.439,4.461-4.515,7.64
+                      c-1.441-0.538-2.738-1.187-3.857-1.919C13.051,11.678,15.936,9.672,19.23,8.562z" />
+                        <path
+                          d="M29.288,33.292c-1.059-0.129-2.136-0.225-3.247-0.25v-2.604l-0.521,0.03l-1.156,0.067v2.505
+                      c-3.078,0.073-5.98,0.551-8.564,1.344c-0.276-1.051-0.498-2.158-0.664-3.306l-1.667,0.099c0.188,1.297,0.442,2.551,0.767,3.738
+                      c-1.625,0.611-3.094,1.354-4.363,2.202c-1.88-2.667-3.09-5.838-3.364-9.272h6.643c0.026,0.602,0.069,1.193,0.126,1.779
+                      l1.156-1.646c-1.886-0.595-3.588-1.199-5.146-1.812h-2.84c0.004-0.397,0.029-0.79,0.057-1.182
+                      c-0.567-0.262-1.102-0.525-1.612-0.791c-0.074,0.707-0.126,1.419-0.126,2.145c0,4.387,1.395,8.451,3.756,11.783
+                      c0.311,0.439,0.637,0.867,0.981,1.28c3.729,4.472,9.324,7.334,15.58,7.37c0.024,0,0.046,0.002,0.07,0.002c0.006,0,0.011,0,0.018,0
+                      c0.01,0,0.02,0,0.03,0c6.304,0,11.949-2.87,15.701-7.371c0.344-0.412,0.67-0.842,0.98-1.281c0.07-0.098,0.13-0.203,0.198-0.303
+                      c-4.316-0.961-8.884-2.801-11.696-4.045L29.288,33.292z M10.863,38.396c1.118-0.729,2.413-1.377,3.85-1.915
+                      c1.076,3.18,2.638,5.826,4.517,7.638C15.936,43.009,13.056,41.001,10.863,38.396z M24.365,45.04
+                      c-3.439-0.473-6.41-4.002-8.094-9.082c2.426-0.729,5.175-1.17,8.094-1.24V45.04z M39.544,38.397
+                      c-2.226,2.645-5.159,4.674-8.517,5.773c1.908-1.82,3.495-4.498,4.58-7.721C37.08,36.993,38.405,37.651,39.544,38.397z
+                      M26.042,45.027v-10.31c2.883,0.07,5.599,0.502,8.004,1.213C32.38,40.979,29.446,44.501,26.042,45.027z" />
+                      </g>
+                    </g>
+                  </svg>
+                  <span class="ms-1">Go-Online</span>
+                </a>
+              </li>
+             <!-- Go offline link   -->
+              <li class="offline-link-box nav-item">
+                <a id="offlineButton" class="offline-link nav-link mb-0 px-3 py-2 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                  <svg height="16px" width="16px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 507.2 507.2" xml:space="preserve">
+                    <circle style="fill:#F15249;" cx="253.6" cy="253.6" r="253.6" />
+                    <path style="fill:#AD0E0E;"
+                      d="M147.2,368L284,504.8c115.2-13.6,206.4-104,220.8-219.2L367.2,148L147.2,368z" />
+                    <path style="fill:#FFFFFF;" d="M373.6,309.6c11.2,11.2,11.2,30.4,0,41.6l-22.4,22.4c-11.2,11.2-30.4,11.2-41.6,0l-176-176
+                c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L373.6,309.6z" />
+                    <path style="fill:#D6D6D6;" d="M280.8,216L216,280.8l93.6,92.8c11.2,11.2,30.4,11.2,41.6,0l23.2-23.2c11.2-11.2,11.2-30.4,0-41.6
+                L280.8,216z" />
+                    <path style="fill:#FFFFFF;" d="M309.6,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6L197.6,373.6
+                c-11.2,11.2-30.4,11.2-41.6,0l-22.4-22.4c-11.2-11.2-11.2-30.4,0-41.6L309.6,133.6z" />
+                  </svg>
+                  <span class="ms-1">Go-Offline</span>
+                </a>
+              </li>
+
+            </ul>
+            <!-- status links container end -->
+
+          </div>
+             <!-- status desc box -->
+        </div>
+            <!-- status desc container end  -->
+
+      </div>
+        <!--profile card sub container  -->
+
+    </div>
+   <!-- profile card container end  -->
+
+  </div>
+<!--Profile main container end-->    
+                                         
+<!-- adds banner changes7 start -->
+
+    <!-- Ads Banner Section -->
+    <div class="ads-banner mt-4">
+      <a href="#" target="_blank"> 
+        <img class="ads-banner-img" src="../client_assets/img/ads/adsbanner1H.jpg" alt="">
+      </a>
+    </div>
+
+<!-- adds banner changes7 end  -->
+
+
+  <div class="container-fluid py-4 ">
+
+    <div class="container mt-5">
+
+      <div class="row">
+
+        <!-- Personal Information Card -->
+
+        <div class="col-md-6">
+
+          <div class="card shadow-lg mb-4">
+            <!--personal info head container   -->
+            <div class="personal-info-head-container card-header text-white">
+              <h4 class="personal-info-heading">Personal Information</h4>
+            </div>
+
+            <div class="card-body p-3">
+              <p class="text-sm" id="clientDescription"></p>
+              <hr class="horizontal gray-light my-4">
+              <ul class="list-group">
+                <li class="list-group-item text-danger"><span class="fw-bold">ID:</h3> <span id="cidDisplay"></h3>
+                </li>
+                <li class="list-group-item"><span class="fw-bold">First Name:</span> <span
+                    id="firstNameDisplay"></span></li>
+                <li class="list-group-item"><span class="fw-bold">Last Name:</span> <span id="lastNameDisplay"></span>
+                </li>
+                <li class="list-group-item"><span class="fw-bold">Email:</span> <span id="emailDisplay"></span></li>
+                <li class="list-group-item"><span class="fw-bold">Phone Number:</span> <span
+                    id="phoneNoDisplay"></span></li>
+                <li class="list-group-item"><span class="fw-bold">Address:</span> <span id="addressDisplay"></span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Information Card -->
+        <div class="col-md-6">
+          <div class="card shadow-lg mb-4">
+
+            <div class="business-info-head-container card-header  ">
+              <h4 class="business-info-heading">Business Information</h4>
+            </div>
+            <div class="card-body p-3">
+              <hr class="horizontal gray-light my-4">
+              <ul class="list-group">
+                <li class="list-group-item"><b>Shop Name: </b><span id="shopNameDisplay"></span></li>
+                <li class="list-group-item"><b>Seller Name:</b> <span id="sellerNameDisplay"></span></li>
+                <li class="list-group-item"><b>Today Orders: </b><span id="clientTotalOrdersDisplay"></span></li>
+                <li class="list-group-item"><b>Account Number: </b><span id="accountDisplay"></span></li>
+                <li class="list-group-item"><b>IFSC Code:</b> <span id="ifscDisplay"></span></li>
+                <li class="list-group-item"><b>UPI ID:</b> <span id="upiDisplay"></span></li>
+                <li class="list-group-item"><b>PAN ID: </b><span id="panidDisplay"></span></li>
+                <li class="list-group-item"><b>Location: </b>
+                  <a href="" id="coordinatesDisplay" class="mt-3 ms-4 btn btn-outline-primary btn-sm" target="_blank">View on
+                    Google Maps</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+                                              <!-- profile changes5 end    -->
+
+
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                ©
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="#" class="font-weight-bold" target="_blank">MinitGo Team</a>
+                for a better trends.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- footer start -->
+<div class="footer-container ">
+  <div class="icon-container">
+       <!-- icon Dasboard --> 
+       <div class="d-icon">
+        <a  href="./tables.html">
+          <i class="bi bi-house" ></i> <br>
+          <span >Dboard</span>
+        </a>
+    </div> 
+      <!-- icon Orders --> 
+      <div class="o-icon">
+          <a  href="./tables.html">
+            <i class="bi bi-bag"></i><br>
+            <span >Orders</span>
+          </a>
+      </div> 
+ 
+      <!-- icon Product -->
+      <div class="pd-icon">
+          <a  href="./products.html">
+            <i class="bi bi-box"></i><br>
+            <span >Add</span>
+          </a>
+      </div> 
+      
+      <!-- icon Billing -->
+      <div class="b-icon">
+          <a  href="./billing.html">
+            <i class="bi bi-receipt"></i><br>
+            <span >Billing</span>
+          </a>
+      </div> 
+
+      
+      <!-- icon profile -->
+      <div class="p-icon">
+          <a  href="./profile.html">
+              <i class="bi bi-person-circle"></i><br>
+              <span >Profile</span>
+          </a>
+      </div>  
+      
+
+
+
+  </div>
+  </div>
+<!-- Footer End -->
+
+
+      </footer>
+    </div>
+  </div>
+  <div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+      <i class="fa fa-headset py-2"> </i>
+    </a>
+    <div class="card shadow-lg ">
+      <div class="card-header pb-0 pt-3 ">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Contact for assistance</h5>
+          <p>Contact: +91 7032327702</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0">
+        <!-- Sidebar Backgrounds -->
+        <div>
+          <h6 class="mb-0">Support</h6>
+        </div>
+        <a href="javascript:void(0)" class="switch-trigger background-color">
+
+        </a>
+        <!-- <script>
+          // Function to get cid from LocalStorage
+          function getCidFromLocalStorage() {
+            const dbUser = JSON.parse(localStorage.getItem('dbUser')); // Fetch 'dbUser'
+
+            if (!dbUser || !dbUser.cid) {
+              console.error('CID not found in local storage');
+              return null;
+            }
+
+            return dbUser.cid; // Return only cid
+          }
+
+          // Function to update client status
+          function updateClientStatus(status) {
+            const cid = getCidFromLocalStorage(); // Get cid from local storage
+
+            if (!cid) {
+              console.error('CID is missing, cannot send request');
+              return;
+            }
+
+            // Convert status to "online" or "offline" based on the button click
+            const statusText = status === '1' ? 'online' : 'offline';
+
+            // Prepare the request data
+            const requestData = {
+              cid: cid,
+              client_status: statusText // Send "online" or "offline"
+            };
+
+            console.log('Sending request to API with data:', requestData);
+
+            // Send the data to the API using fetch
+            fetch('https://minitzgo.com/api/client_status.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                "x-api-key": "47700d1bb2b874b5fb55ff536c0f9d627feb023f8ed228652f364762a41f7690"
+              },
+              body: JSON.stringify(requestData)
+            })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+              })
+              .then(data => {
+                console.log('Response from API:', data);
+                alert('Status updated successfully!');
+              })
+              .catch(error => {
+                console.error('Error during API request:', error);
+                alert('Failed to update status. Please try again.');
+                // Revert UI changes if the API call failed
+              });
+          }
+
+          // Event listeners for online and offline buttons
+          // document.getElementById('onlineButton').addEventListener('click', function () {
+          // updateClientStatus('1'); // Send '1' which maps to 'online'
+          // });
+
+          // document.getElementById('offlineButton').addEventListener('click', function () {
+          // updateClientStatus('0'); // Send '0' which maps to 'offline'
+          // });
+
+          // Function to toggle active state and change the status
+          function toggleButtonActive(status) {
+            const onlineButton = document.getElementById('onlineButton');
+            const offlineButton = document.getElementById('offlineButton');
+            const currentStatus = document.getElementById('currentStatus');
+            const onlineMessage = document.getElementById('onlineMessage');
+            const offlineMessage = document.getElementById('offlineMessage');
+
+            if (status === 'online') {
+              // Make the online button active
+              onlineButton.style.backgroundColor = '#007bff';
+              onlineButton.style.color = '#ffffff';
+
+              // Reset the offline button to inactive
+              offlineButton.style.backgroundColor = 'transparent';
+              offlineButton.style.color = '#dc3545';
+
+              // Save the status to localStorage
+              localStorage.setItem('client_status', 'online');
+
+              // Update status message
+              currentStatus.textContent = 'Online';
+              onlineMessage.style.display = 'block'; // Show online message
+              offlineMessage.style.display = 'none'; // Hide offline message
+
+              // Call the API to set status to online
+              updateClientStatus('1'); // "1" for online
+            } else if (status === 'offline') {
+              // Make the offline button active
+              offlineButton.style.backgroundColor = '#dc3545';
+              offlineButton.style.color = '#ffffff';
+
+              // Reset the online button to inactive
+              onlineButton.style.backgroundColor = 'transparent';
+              onlineButton.style.color = '#007bff';
+
+              // Save the status to localStorage
+              localStorage.setItem('client_status', 'offline');
+
+              // Update status message
+              currentStatus.textContent = 'Offline';
+              onlineMessage.style.display = 'none'; // Hide online message
+              offlineMessage.style.display = 'block'; // Show offline message
+
+              // Call the API to set status to offline
+              updateClientStatus('0'); // "0" for offline
+            }
+          }
+
+          // Function to load and apply the saved status from localStorage
+          function applySavedStatus() {
+            const savedStatus = localStorage.getItem('client_status');
+            const currentStatus = document.getElementById('currentStatus');
+            const onlineMessage = document.getElementById('onlineMessage');
+            const offlineMessage = document.getElementById('offlineMessage');
+
+            if (savedStatus === 'online') {
+              toggleButtonActive('online');
+              currentStatus.textContent = 'Online';
+              onlineMessage.style.display = 'block'; // Show online message
+              offlineMessage.style.display = 'none'; // Hide offline message
+            } else if (savedStatus === 'offline') {
+              toggleButtonActive('offline');
+              currentStatus.textContent = 'Offline';
+              onlineMessage.style.display = 'none'; // Hide online message
+              offlineMessage.style.display = 'block'; // Show offline message
+            } else {
+              currentStatus.textContent = 'offline'; // Default state if not set
+              onlineMessage.style.display = 'none'; // Hide online message
+              offlineMessage.style.display = 'none'; // Hide offline message
+            }
+          }
+
+          // Event listeners for the buttons
+          document.getElementById('onlineButton').addEventListener('click', function () {
+            toggleButtonActive('online');
+          });
+
+          document.getElementById('offlineButton').addEventListener('click', function () {
+            toggleButtonActive('offline');
+          });
+
+          // Apply the saved status on page load
+          document.addEventListener('DOMContentLoaded', function () {
+            applySavedStatus();
+          });
+
+          document.addEventListener("DOMContentLoaded", function () {
+            const logoutBtn = document.getElementById("logoutBtn");
+
+            if (logoutBtn) {
+              logoutBtn.addEventListener("click", function () {
+                // Clear user data from localStorage
+                localStorage.removeItem("dbUser");
+
+                // Redirect to login page
+                window.location.href = "login.html";
+              });
+            } else {
+              console.error("Logout button not found!");
+            }
+          });
+
+        </script> -->
+
+        <!--   Core JS Files   -->
+        <script src="../client_assets/js/core/popper.min.js"></script>
+        <script src="../client_assets/js/core/bootstrap.min.js"></script>
+        <script src="../client_assets/js/plugins/perfect-scrollbar.min.js"></script>
+        <script src="../client_assets/js/plugins/smooth-scrollbar.min.js"></script>
+        <script src="../client_assets/js/clientverfy.js"></script>
+
+        <!-- Github buttons -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../client_assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+        <script src="../client_assets/js/profile.js"></script>
+        <script src="../client_assets/js/clientprofile.js"> </script>
+        <script src="../client_assets/js/notification.js"> </script>
+        <!-- footerscript -->
+        <script src="../client_assets/js/footer.js"></script>
+        <audio id="notificationSound">
+          <source src="../client_assets/sound/xperia-x10-sms-1193.mp3" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        </script>
+</body>
+
+</html>
