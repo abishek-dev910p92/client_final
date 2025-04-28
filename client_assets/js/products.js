@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // all products.js code here
+
+
 var win = navigator.platform.indexOf('Win') > -1;
 if (win && document.querySelector('#sidenav-scrollbar')) {
     var options = {
@@ -362,3 +366,4 @@ function updateStock(productId, action) {
         }
     });
 }
+});
