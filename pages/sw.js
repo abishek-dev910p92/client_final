@@ -1,19 +1,16 @@
 self.addEventListener('push', function(event) {
+  const data = event.data.json();
+  console.log('Push received:', data);
+
   const options = {
-    body: event.data.text(),
-    icon: 'icon.png', // Path to your icon image
-    badge: 'badge.png', // Path to your badge image
-    vibrate: [200, 100, 200], // Vibration pattern (optional)
+    body: data.body,
+    icon: data.icon || 'icon.png',
+    badge: data.badge || 'badge.png',
+    data: { url: data.url },
+    sound: data.sound || 'default',  // Add sound property (you can provide your own sound file)
   };
 
   event.waitUntil(
-    self.registration.showNotification('New Push Notification', options)
-  );
-});
-
-self.addEventListener('notificationclick', function(event) {
-  event.notification.close();
-  event.waitUntil(
-    clients.openWindow('https://yourwebsite.com') // URL to open on click
+    self.registration.showNotification(data.title, options)
   );
 });

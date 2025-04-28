@@ -8,13 +8,19 @@ require __DIR__ . '/../vendor/autoload.php';
 use Minishlink\WebPush\WebPush;
 use Minishlink\WebPush\Subscription;
 
-// Load subscription
-if (!file_exists(__DIR__ . '/subscriptions.json')) {
-    die('Error: subscriptions.json file not found');
-}
-$subscription = json_decode(file_get_contents(__DIR__ . '/subscriptions.json'), true);
-if ($subscription === null) {
-    die('Error: Invalid JSON in subscriptions.json');
+// Database connection settings
+$host = 'localhost';   // Database host
+$dbname = 'u473959262_minitgo';  // Database name
+$username = 'u473959262_minitgo'; // Your database username
+$password = 'Minitzgo#2025';  // Your database password
+
+
+// Create a PDO instance for database connection
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 
 // Load VAPID keys
@@ -39,26 +45,33 @@ $auth = [
 $webPush = new WebPush($auth);
 
 // Create the notification content
-// Create the notification content
 $notification = [
     'title' => '🚀 New Update!',
-    'body' => 'You have a new message.',
-    'sound' => 'default',  // Add this line to include sound
+    'body' => 'Check out new order!',
+    'url' => 'https://example.com',  // URL to open when the notification is clicked
+    'icon' => 'icon.png',  // make sure you have an icon file or a URL
+    'badge' => 'badge.png',  // optional: a smaller icon
+    'sound' => 'default',  // hint for mobile devices
 ];
 
+// Fetch subscriptions from database (you can modify this query to target specific users)
+$user_id = 1;  // For example, send to user with ID = 1
+$sql = "SELECT * FROM subscriptions WHERE user_id = :user_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':user_id', $user_id);
+$stmt->execute();
 
-// Create the Subscription object
-$subscriptionObj = Subscription::create([
-    'endpoint' => $subscription['endpoint'],
-    'publicKey' => $subscription['keys']['p256dh'],
-    'authToken' => $subscription['keys']['auth'],
-]);
+// Loop through subscriptions and send notifications
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $subscriptionObj = Subscription::create([
+        'endpoint' => $row['endpoint'],
+        'publicKey' => $row['publicKey'],
+        'authToken' => $row['authToken'],
+    ]);
 
-// Send the push notification
-$webPush->queueNotification(
-    $subscriptionObj,
-    json_encode($notification)
-);
+    // Send the push notification
+    $webPush->queueNotification($subscriptionObj, json_encode($notification));
+}
 
 // Make sure all notifications are sent
 foreach ($webPush->flush() as $report) {
