@@ -21,7 +21,7 @@ function onPageLoad() {
   const dbUser = getDbUserFromLocalStorage();
 
   if (dbUser) {
-    // console.log('User data retrieved:', dbUser);
+    //console.log('User data retrieved:', dbUser);
     const userNameElement = document.getElementById('userName');
     document.getElementById('cid').textContent = dbUser.cid;
     document.getElementById('first_name').textContent = dbUser.first_name;

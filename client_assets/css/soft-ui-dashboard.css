@@ -25385,5 +25385,24 @@ pre[class*="language-"] {
     overflow: auto !important;
   }
 }
+/*logout button in profile page*/
+#logoutBtn {
+  all: unset !important; /* Reset all styles */
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: inherit !important; /* Match parent text color */
+  font: inherit !important; /* Match parent font */
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline !important; /* Make it inline like text */
+  line-height: inherit !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */
