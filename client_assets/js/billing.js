@@ -25,15 +25,15 @@ function onPageLoad() {
     const userNameElement = document.getElementById('userName');
     document.getElementById('cid').textContent = dbUser.cid;
     document.getElementById('first_name').textContent = dbUser.first_name;
-    // document.getElementById('last_name').textContent = dbUser.last_name;
-    // document.getElementById('email').textContent = dbUser.email;
-    // document.getElementById('phoneno').textContent = dbUser.phoneno;
-    // document.getElementById('account').textContent = formattedAccount;
+    document.getElementById('last_name').textContent = dbUser.last_name;
+    document.getElementById('email').textContent = dbUser.email;
+    document.getElementById('phoneno').textContent = dbUser.phoneno;
+    document.getElementById('account').textContent = formattedAccount;
     // document.getElementById('ifsc').textContent = dbUser.ifsc;
     // document.getElementById('panid').textContent = dbUser.panid;
-    // document.getElementById('address').textContent = dbUser.address;
-    // document.getElementById('seller_name').textContent = dbUser.seller_name;
-    // document.getElementById('shop_name').textContent = dbUser.shop_name;
+    document.getElementById('address').textContent = dbUser.address;
+    document.getElementById('seller_name').textContent = dbUser.seller_name;
+    document.getElementById('shop_name').textContent = dbUser.shop_name;
 
     if (userNameElement) {
       const userName = createUserName(dbUser);
