@@ -14,16 +14,16 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
-// Get the subscription POST data
-$subscriptionData = json_decode(file_get_contents("php://input"), true);
+// Get the POST data from the frontend (JSON format)
+$inputData = json_decode(file_get_contents("php://input"), true);
 
 // Make sure the data is valid
-if (isset($subscriptionData['endpoint'], $subscriptionData['keys']['p256dh'], $subscriptionData['keys']['auth'])) {
-    $user_id = 1;  // For now, set a static user ID. This should come from your user management system.
+if (isset($inputData['user_id'], $inputData['subscription']['endpoint'], $inputData['subscription']['keys']['p256dh'], $inputData['subscription']['keys']['auth'])) {
+    $user_id = $inputData['user_id'];  // Use the user_id (cid) from the frontend
 
-    $endpoint = $subscriptionData['endpoint'];
-    $publicKey = $subscriptionData['keys']['p256dh'];
-    $authToken = $subscriptionData['keys']['auth'];
+    $endpoint = $inputData['subscription']['endpoint'];
+    $publicKey = $inputData['subscription']['keys']['p256dh'];
+    $authToken = $inputData['subscription']['keys']['auth'];
 
     // Prepare the SQL query to insert the subscription into the database
     $sql = "INSERT INTO subscriptions (user_id, endpoint, publicKey, authToken) 
@@ -45,6 +45,6 @@ if (isset($subscriptionData['endpoint'], $subscriptionData['keys']['p256dh'], $s
         echo "⚠️ Failed to save subscription on server.";
     }
 } else {
-    echo "❌ Invalid subscription data.";
+    echo "❌ Invalid subscription data or missing user_id (cid).";
 }
 ?>

@@ -7,6 +7,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Minishlink\WebPush\WebPush;
 use Minishlink\WebPush\Subscription;
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 // Database connection settings
 $host = 'localhost';   // Database host
@@ -73,7 +76,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $webPush->queueNotification($subscriptionObj, json_encode($notification));
 }
 
-// Make sure all notifications are sent
 foreach ($webPush->flush() as $report) {
     $endpoint = $report->getRequest()->getUri()->__toString();
 
@@ -81,6 +83,9 @@ foreach ($webPush->flush() as $report) {
         echo "✅ Success: Message sent to {$endpoint}<br>";
     } else {
         echo "❌ Failure: Message failed for {$endpoint}: {$report->getReason()}<br>";
+        // Optional: Add more details for debugging:
+        error_log('Push notification failure: ' . $report->getReason());
     }
 }
+
 ?>
